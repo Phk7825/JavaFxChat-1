@@ -15,6 +15,8 @@ public class BroadcastServerThread implements Runnable{
 	public BroadcastServerThread(BroadcastServer bs){
 		this.bs = bs;
 	}
+	
+	@Override
 	public synchronized void run(){
 		boolean isStop = false;
 		try {
@@ -59,20 +61,17 @@ public class BroadcastServerThread implements Runnable{
 						//쓰레드 종료
 						isStop = true;
 						broadcastList("3");
-						System.out.println("클라이언트 접속자수 : "+
-						bs.getList().size());
+						System.out.println("클라이언트 접속자수 : "+ bs.getList().size());
 					}else if(temp[0].equals("3")){
 						broadcastList("3");
-						System.out.println("클라이언트 접속자수 : "+
-						bs.getList().size());
+						System.out.println("클라이언트 접속자수 : "+ bs.getList().size());
 					}
 				}else{
 					bs.getList().remove(this);
 					broadcastList("3");
 					//쓰레드 종료
 					isStop = true;
-					System.out.println("클라이언트 접속자수 : "+
-					bs.getList().size());
+					System.out.println("클라이언트 접속자수 : "+ bs.getList().size());
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -84,8 +83,7 @@ public class BroadcastServerThread implements Runnable{
 					e1.printStackTrace();
 				}
 				isStop = true;
-				System.out.println("클라이언트 접속자수 : "+
-						bs.getList().size());
+				System.out.println("클라이언트 접속자수 : "+ bs.getList().size());
 			}
 		}
 	}
@@ -113,7 +111,7 @@ public class BroadcastServerThread implements Runnable{
 		}
 	}
 	
-	// 메시지 boradcast 전달
+	// 메시지 broadcast 전달
 	private void broadcast(String msg) throws IOException{
 		ArrayList list = bs.getList();
 		for(int i=0;i<list.size();i++){

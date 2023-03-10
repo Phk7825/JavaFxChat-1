@@ -51,7 +51,8 @@ public class ClientController implements Initializable {
 		String ranId =uniqueKey.toString();
 		try {
 			InetAddress ia = InetAddress.getLocalHost();
-			ip = ia.getHostAddress();
+//			ip = ia.getHostAddress();
+			ip = "192.168.1.101";
 			id = "guest@" + ranId.substring(ranId.length()-5, ranId.length());
 			
 			label.setText("Usage ID :"+id+"("+ip+")");

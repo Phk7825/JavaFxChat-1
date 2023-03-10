@@ -49,7 +49,7 @@ public class ClientThread extends Thread {
 					}else{
 						cc.getTextArea().appendText(
 								temp[1]+" 님이 종료하셨습니다."+
-								System.getProperty("line.separator"));
+								System.getProperty("line.separator"));			//println이랑 비슷한 기능이라고 생각하면 될듯
 					}
 					
 					
